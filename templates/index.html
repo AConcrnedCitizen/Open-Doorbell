@@ -1,14 +1,18 @@
 <html>
-  <head>
 
+<head>
 
-  </head>
-  <body>
-    <h1 style="font-family: Segoe UI; font-size: 44px">Doorbell.</h1>
+  <title>You're Doorbell</title>
 
-  <img src="{{url_for('static', filename='latest.jpg')}}" width="50%"/>
+</head>
+
+<body>
+  <h1 style="font-family: Segoe UI; font-size: 44px">Doorbell.</h1>
+
+  <img src="{{url_for('static', filename='latest.jpg')}}" width="50%" />
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
   <script type=text/javascript>
           $(function() {
             $('a#test').on('click', function(e) {
@@ -23,12 +27,12 @@
   </script>
 
   <div class='container'>
-        <form>
-            <a href=# id=test><button class='btn btn-default'>Test</button></a>
-        </form>
+    <form>
+      <a href=# id=test><button class='btn btn-default'>Take Photo</button></a>
+    </form>
 
-</div>
+  </div>
 
-  </body>
+</body>
 
 </html>

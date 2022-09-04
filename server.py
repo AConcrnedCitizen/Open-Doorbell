@@ -1,5 +1,8 @@
 from flask import Flask, render_template, url_for
-#import takephoto
+import takephoto as photo
+
+
+
 app = Flask(__name__)
 
 
@@ -10,9 +13,10 @@ def page():
 
 @app.route('/background_process_test')
 def background_process_test():
-    #print ("SCREAM")
-    return ("nothing")
+    photo.takephoto()
+    return("nothing")
 
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
+    
