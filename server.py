@@ -11,28 +11,26 @@ app = Flask(__name__)
 
 shuttersound = AudioSegment.from_file("shutter.mp3", format="mp3")
 
-
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def page():
+    if request.method == 'GET':
+        return render_template('index.html')
+    elif request.method == 'POST':
+        if request.form.get('action1') == "Take Photo":
+            photo.takephoto()
+            play(shuttersound)
+
+        elif request.form.get('action2') == "Speak":
+            text = request.form['text']
+            if text != "":
+                tts.speak(str(text).upper())
+                print("Speaking")
+            else:
+                pass
+    else:
+        return render_template('index.html')
     return render_template('index.html')
-
-
-@app.route('/take_photo')
-def takephoto():
-    photo.takephoto()
-    play(shuttersound)
-    time.sleep(5)
-    return("nothing")
-
-
-@app.route('/', methods=['POST'])
-def speak():
-    text = request.form['text']
-    tts.speak(text)
-    print("text")
-    p_text = text.upper()
-    return render_template('index.html')
-
+    
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

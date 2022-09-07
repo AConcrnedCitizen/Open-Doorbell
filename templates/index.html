@@ -12,7 +12,6 @@
   body {
     margin: 0;
     height: 100%;
-    overflow: hidden;
     font-family: Segoe UI;
   }
 
@@ -62,54 +61,25 @@
 
 <body>
   <div style="margin-left: 7%;">
-    <h1 style="font-size: 44px; color: white;">Doorbell.</h1>
+    <h1 style="font-size: 44px; color: white;">Doorbell</h1>
 
     <img src="{{url_for('static', filename='latest.jpg')}}" width="50%" />
 
   </div>
 
-
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-  <script type=text/javascript>
-          $(function() {
-            $('a#test').on('click', function(e) {
-              e.preventDefault()
-              $.getJSON('/take_photo',
-                  function(data) {
-                //do nothing
-              });
-              return false;
-            });
-          });
-
-
-          $(function() {
-            $('a#submit').on('click', function(e) {
-              e.preventDefault()
-              $.getJSON('/submit',
-                  function(data) {
-                //do nothing
-              });
-              return false;
-            });
-          });
-
-  </script>
-
-
   <div class='container' style="margin-left: 60%; margin-top: -20%;">
-    <form>
-      <a href=# id=test><button class='button'>Update Photo</button></a>
-    </form>
-
-    <form method="POST">
-      <input name="text">
-      <a type="submit"><button class="button">Speak!</button></a>
-    </form>
 
 
+  <form method = "post" action="/">
+  <input type="submit" name="action1" value="Take Photo" class="button"/>
+  </form>
 
+  <form method="post" action="/">
+  <input type="submit" name="action2" value="Speak" class="button"/>
+  <input name="text">
+  </form>
+
+<p>Test</p>
 
   </div>
 
