@@ -3,7 +3,7 @@
 <head>
 
   <title>You're Doorbell</title>
-  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"> -->
 
 </head>
 
@@ -63,23 +63,23 @@
   <div style="margin-left: 7%;">
     <h1 style="font-size: 44px; color: white;">Doorbell</h1>
 
-    <img src="{{url_for('static', filename='latest.jpg')}}" width="50%" />
+    <img src="{{ url_for('video_feed') }}" width="50%">
 
   </div>
 
   <div class='container' style="margin-left: 60%; margin-top: -20%;">
+    <form method="post" action="/">
+      <input type="submit" name="action1" value="Take Photo" class="button" />
+    </form>
 
+    <form method="post" action="/">
+      <input type="submit" name="action2" value="Speak" class="button" />
+      <input name="text">
+    </form>
 
-  <form method = "post" action="/">
-  <input type="submit" name="action1" value="Take Photo" class="button"/>
-  </form>
-
-  <form method="post" action="/">
-  <input type="submit" name="action2" value="Speak" class="button"/>
-  <input name="text">
-  </form>
-
-<p>Test</p>
+    <form method="post" action="{{ url_for('tasks') }}">
+      <input type="submit" value="Start/Stop Recording" name="rec" class="button" />
+    </form>
 
   </div>
 
