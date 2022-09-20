@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="static/style.css">
-    <script type="text/javascript" src="static/script.js"></script>
-</head>
-
-<body>
-    <h1>Gallery</h1>
+{% extends "base.html" %}
+{% block title %}Gallery{% endblock %}
+{% block head %}
+<script type="text/javascript" src="static/script.js"></script>
+{% endblock %}
+{% block content %}
+    <h1 style="font-size: 44px; color: white;">Gallery</h1>
     <div class="overlay"><img src="blah" id="top" hidden=True>
-        <span id="close" hidden=True onclick=do_close()><b><u>CLOSE(X)</u></b></span>
+        <button onclick="do_close()" id="close" hidden=True class="button">Close</button>
     </div>
-    <div class="cx" style="background-color:#fff;">
+    <div class="cx">
         {% for path in paths %}
         {% if path[1] == "img" %}
         <img src='cdn/{{ path[0] }}' height=200 width=200 onclick="clicked_img(this)">
@@ -24,4 +20,4 @@
         {% endif %}
         {% endfor %}
     </div>
-</body>
+{% endblock %}
