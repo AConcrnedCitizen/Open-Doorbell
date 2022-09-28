@@ -6,6 +6,11 @@ $(document).ready(function () {
     socket.on('buttonpressed', function (msg) {
         console.log(msg);
         x.play();
+        Notification.requestPermission().then(perm => {
+            if (perm === "granted") {
+                new Notification("Doorbell Rung");
+            }
+        })
     });
 
 });
